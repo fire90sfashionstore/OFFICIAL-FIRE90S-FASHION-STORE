@@ -170,41 +170,16 @@ function filterProducts(category) {
     renderProducts(category);
 }
 
-// Cart Logic
-let cartCount = 0;
-
-function addToCart() {
-    cartCount++;
-    updateCartDisplay();
-    // Optional: Animation or feedback
-    const btn = event.target;
-    const originalText = btn.innerText;
-    btn.innerText = "Added!";
-    btn.style.background = "#fff";
-    btn.style.color = "#000";
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = "";
-        btn.style.color = "";
-    }, 1000);
-}
-
-function updateCartDisplay() {
-    const countElement = document.getElementById('cart-count');
-    if (countElement) {
-        countElement.innerText = cartCount;
-        countElement.style.display = cartCount > 0 ? 'block' : 'none';
-        // Add a little pop animation
-        countElement.style.transform = 'scale(1.2)';
-        setTimeout(() => countElement.style.transform = 'scale(1)', 200);
-    }
-}
+// Cart Logic (Removed)
+// let cartCount = 0;
+// function addToCart() { ... }
+// function updateCartDisplay() { ... }
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderComponents();
     renderProducts();
-    updateCartDisplay(); // Ensure hidden initially if 0
+    // updateCartDisplay(); // Removed
 
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');

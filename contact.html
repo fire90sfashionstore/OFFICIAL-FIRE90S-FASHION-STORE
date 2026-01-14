@@ -46,7 +46,7 @@
             <!-- Contact Form -->
             <form id="contactForm"
                 action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfQuLPDr3xPcLw6WOEbi_RwpLVrBRS8slZgTVb-ml0omPZTsg/formResponse"
-                method="POST" target="_blank"
+                method="POST" target="hidden_iframe"
                 style="background: var(--color-glass); padding: 40px; border-radius: 20px; border: 1px solid var(--color-glass-border);">
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 10px; font-weight: 500;">Name</label>
@@ -70,6 +70,9 @@
             </form>
         </div>
     </div>
+
+    <!-- Hidden Iframe to capture submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <footer id="footer"></footer>
 

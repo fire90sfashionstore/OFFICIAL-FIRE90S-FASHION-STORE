@@ -3,39 +3,18 @@
 // Shared Components Data
 const components = {
     navbar: `
-    navbar: `
-        < div class= "container nav-content" style="padding: 10px 20px;" >
-            < !--Left: Socials(Hidden on small screens) -- >
-            <div class="nav-left" style="display: flex; gap: 1rem;">
-                <!-- Social Icons Placeholder -->
-                <span style="opacity:0.7; cursor:pointer;">📷</span>
-                <span style="opacity:0.7; cursor:pointer;">📘</span>
-                <span style="opacity:0.7; cursor:pointer;">💬</span>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">FIRE90S FASHION <span class="fire-text">STORE</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="contact.html">Contact</a>
             </div>
-
-            <!--Center: Links & Logo-- >
-            <div class="nav-center" style="text-align: center; flex: 1;">
-                <a href="index.html" class="logo" style="display: block; margin-bottom: 5px;">FIRE90S FASHION <span class="fire-text">STORE</span></a>
-                <div class="nav-links" id="navLinks" style="justify-content: center; gap: 2rem;">
-                    <a href="index.html">Home</a>
-                    <a href="shop.html">Shop</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-
-            <!--Right: Actions-- >
-    <div class="nav-right" style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="login.html" title="Login" style="font-size: 1.2rem;">👤</a>
-        <div class="cart-icon" style="position: relative; cursor: pointer;" onclick="alert('Cart feature coming soon!')">
-            <span style="font-size: 1.2rem;">🛒</span>
-            <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%;">0</span>
         </div>
-        <div class="mobile-menu-btn" onclick="toggleMenu()" style="margin-left: 10px;">☰</div>
-    </div>
-        </div >
     `,
     footer: `
-    < div class="container footer-content" >
+        <div class="container footer-content">
             <div class="footer-col">
                 <a href="index.html" class="logo">FIRE90S FASHION <span class="fire-text">STORE</span></a>
                 <p style="margin-top: 1rem; opacity: 0.7; max-width: 300px;">
@@ -58,11 +37,11 @@ const components = {
                     <li><a href="#">Returns</a></li>
                 </ul>
             </div>
-        </div >
-    <div class="copyright">
-        &copy; 2026 FIRE90S FASHION STORE. All rights reserved.
-    </div>
-`
+        </div>
+        <div class="copyright">
+            &copy; 2026 FIRE90S FASHION STORE. All rights reserved.
+        </div>
+    `
 };
 
 // Render Components
@@ -140,7 +119,7 @@ function renderProducts(category = 'all') {
     let html = '';
     filtered.forEach(p => {
         html += `
-    < div class="product-card" style = "background: var(--color-glass); border: 1px solid var(--color-glass-border); border-radius: 15px; overflow: hidden; transition: 0.3s;" >
+            <div class="product-card" style="background: var(--color-glass); border: 1px solid var(--color-glass-border); border-radius: 15px; overflow: hidden; transition: 0.3s;">
                 <div style="height: 300px; overflow: hidden; background: #222;">
                     <img src="${p.img}" style="width: 100%; height: 100%; object-fit: cover;" alt="${p.name}">
                 </div>
@@ -150,8 +129,8 @@ function renderProducts(category = 'all') {
                     <p style="color: var(--color-primary); font-weight: 700; font-size: 1.1rem; margin-bottom: 15px;">${p.price}</p>
                     <button class="btn" style="width: 100%; font-size: 0.9rem; padding: 10px;">Add to Cart</button>
                 </div>
-            </div >
-    `;
+            </div>
+        `;
     });
     grid.innerHTML = html;
 }
@@ -170,16 +149,10 @@ function filterProducts(category) {
     renderProducts(category);
 }
 
-// Cart Logic (Removed)
-// let cartCount = 0;
-// function addToCart() { ... }
-// function updateCartDisplay() { ... }
-
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderComponents();
     renderProducts();
-    // updateCartDisplay(); // Removed
 
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');

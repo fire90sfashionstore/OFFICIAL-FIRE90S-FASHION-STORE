@@ -624,3 +624,57 @@ body {
     }
 }
 
+
+/* Marquee Animation */
+.top-bar {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+}
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 20s linear infinite;
+    padding-left: 100%; /* Start from right */
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Mobile Category Grid (App-like) */
+@media (max-width: 768px) {
+    .carousel-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding: 10px 15px;
+    }
+    .carousel-wrapper {
+        overflow: visible;
+    }
+    .scroll-btn {
+        display: none; /* Hide scroll buttons on mobile */
+    }
+    .cat-card {
+        min-width: unset;
+        width: 100%; /* Full width of grid cell */
+        aspect-ratio: 3/4;
+        margin: 0;
+    }
+    .cat-card h3 {
+        font-size: 1rem; /* Smaller text for mobile grid */
+    }
+    
+    /* Improve spacing for clean look */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+

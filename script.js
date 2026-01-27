@@ -376,14 +376,5 @@ function copyProductLink() {
 }
 
 
-// Auto-Hide Top Banner after 10 minutes (600,000ms)
-setTimeout(() => {
-    const topBar = document.querySelector(".top-bar");
-    if (topBar) {
-        topBar.style.display = "none";
-        // Sticky navbar might need adjustment if it depended on top-bar height, 
-        // but since it use "top: 0" and "sticky" it should auto-adjust or stick to top 0.
-        // However, if top-bar was flow content, removing it moves navbar up naturally.
-    }
-}, 600000);
+
 

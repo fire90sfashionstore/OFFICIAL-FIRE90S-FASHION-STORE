@@ -262,3 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function closeModal() {
     document.getElementById('confirmationModal').style.display = 'none';
 }
+
+function scrollCollections(direction) {
+    const container = document.getElementById('collectionCarousel');
+    const scrollAmount = 320; // card width + gap
+
+    if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}

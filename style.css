@@ -452,7 +452,10 @@ footer {
 }
 
 .cat-card {
-    min-width: 300px;
+    min-width: 320px;
+    width: 320px;
+    aspect-ratio: 3 / 4;
+    height: auto;
     scroll-snap-align: start;
     flex-shrink: 0;
 }

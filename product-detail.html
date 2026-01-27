@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - FIRE90S FASHION STORE</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <!-- Javascript will load Navbar here -->
+    </nav>
+
+    <div class="container" style="padding: 120px 20px 60px;">
+        <div id="product-detail-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+            <p>Loading product details...</p>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <!-- Javascript will load Footer here -->
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+
+            if (productId) {
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    renderProductDetail(product);
+                } else {
+                    document.getElementById('product-detail-container').innerHTML = '<p>Product not found.</p>';
+                }
+            } else {
+                document.getElementById('product-detail-container').innerHTML = '<p>No product specified.</p>';
+            }
+        });
+
+        function renderProductDetail(product) {
+            const container = document.getElementById('product-detail-container');
+
+            // Generate details list HTML
+            let detailsHtml = '';
+            if (product.details && product.details.length > 0) {
+                detailsHtml = '<ul style="margin-bottom: 20px; padding-left: 20px;">' +
+                    product.details.map(detail => `<li>${detail}</li>`).join('') +
+                    '</ul>';
+            }
+
+            container.innerHTML = `
+                <div style="flex: 1; min-width: 300px; max-width: 500px;">
+                    <img src="${product.img}" alt="${product.name}" style="width: 100%; border-radius: 20px; border: 1px solid var(--color-glass-border);">
+                </div>
+                <div style="flex: 1; min-width: 300px; max-width: 500px;">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">${product.name}</h1>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">${product.category}</p>
+                    <p style="color: var(--color-primary); font-size: 2rem; font-weight: 700; margin-bottom: 30px;">${product.price}</p>
+                    
+                    <p style="margin-bottom: 20px; line-height: 1.6;">${product.description || 'No description available.'}</p>
+                    
+                    <h3 style="margin-bottom: 10px;">Product Details:</h3>
+                    ${detailsHtml}
+                    
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: var(--color-primary);">Shipping Info</h4>
+                        <p style="font-size: 0.9rem;">${product.shipping || 'Standard shipping applies.'}</p>
+                    </div>
+
+                     <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 10px; color: var(--color-primary);">Returns</h4>
+                        <p style="font-size: 0.9rem;">${product.returns || 'Standard return policy applies.'}</p>
+                    </div>
+
+                    <button class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Add to Cart</button>
+                    <button class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem; background: transparent; border: 1px solid var(--color-primary); margin-top: 10px;">Buy Now</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

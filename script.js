@@ -233,7 +233,18 @@ function filterProducts(category) {
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderComponents();
-    renderProducts();
+
+    // Check for category filter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+
+    if (categoryParam) {
+        // Decode URI component to handle spaces (e.g. %20)
+        const category = decodeURIComponent(categoryParam);
+        filterProducts(category);
+    } else {
+        renderProducts();
+    }
 
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');

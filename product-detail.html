@@ -15,6 +15,10 @@
 
 <body>
 
+    <div class="top-bar">
+        🇮🇳 Free Home Delivery Available All Over India | Special Offers Inside! 🎁
+    </div>
+
     <nav class="navbar" id="navbar">
         <!-- Javascript will load Navbar here -->
     </nav>
@@ -54,37 +58,49 @@
             // Generate details list HTML
             let detailsHtml = '';
             if (product.details && product.details.length > 0) {
-                detailsHtml = '<ul style="margin-bottom: 20px; padding-left: 20px;">' +
+                detailsHtml = '<ul style="margin-bottom: 20px; padding-left: 20px; color: rgba(255,255,255,0.8);">' +
                     product.details.map(detail => `<li>${detail}</li>`).join('') +
                     '</ul>';
             }
 
             container.innerHTML = `
                 <div style="flex: 1; min-width: 300px; max-width: 500px;">
-                    <img src="${product.img}" alt="${product.name}" style="width: 100%; border-radius: 20px; border: 1px solid var(--color-glass-border);">
+                    <img src="${product.img}" alt="${product.name}" style="width: 100%; border-radius: 20px; border: 1px solid var(--color-glass-border); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
                 </div>
                 <div style="flex: 1; min-width: 300px; max-width: 500px;">
-                    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">${product.name}</h1>
-                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">${product.category}</p>
-                    <p style="color: var(--color-primary); font-size: 2rem; font-weight: 700; margin-bottom: 30px;">${product.price}</p>
+                    <h1 style="font-size: 2.2rem; margin-bottom: 5px;">${product.name}</h1>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 15px;">${product.category}</p>
+                    <p style="color: var(--color-primary); font-size: 2rem; font-weight: 700; margin-bottom: 25px;">${product.price}</p>
                     
-                    <p style="margin-bottom: 20px; line-height: 1.6;">${product.description || 'No description available.'}</p>
-                    
-                    <h3 style="margin-bottom: 10px;">Product Details:</h3>
-                    ${detailsHtml}
-                    
-                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-                        <h4 style="margin-bottom: 10px; color: var(--color-primary);">Shipping Info</h4>
-                        <p style="font-size: 0.9rem;">${product.shipping || 'Standard shipping applies.'}</p>
+                    <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+                        <button class="btn" style="flex: 2; padding: 15px; font-size: 1.1rem;" onclick="addToCart(${product.id})">Add to Cart</button>
+                        <button class="btn" style="flex: 0 0 60px; padding: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);" onclick="openShareModal()">
+                            <span style="font-size: 1.5rem;">🔗</span>
+                        </button>
                     </div>
 
-                     <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
-                        <h4 style="margin-bottom: 10px; color: var(--color-primary);">Returns</h4>
-                        <p style="font-size: 0.9rem;">${product.returns || 'Standard return policy applies.'}</p>
+                    <p style="margin-bottom: 20px; line-height: 1.6; font-size: 1.05rem;">${product.description || 'No description available.'}</p>
+                    
+                    <div class="policy-section">
+                        <div class="policy-title">📦 Product Details</div>
+                        ${detailsHtml || '<p>No additional details.</p>'}
                     </div>
 
-                    <button class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="addToCart(${product.id})">Add to Cart</button>
-                    <button class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem; background: transparent; border: 1px solid var(--color-primary); margin-top: 10px;">Buy Now</button>
+                    <div class="policy-section">
+                        <div class="policy-title">🚚 Shipping Info</div>
+                        <p style="font-size: 0.9rem;">Free Home Delivery Available All Over India 🇮🇳. ${product.shipping || 'Dispatched within 24 hours.'}</p>
+                    </div>
+
+                    <div class="policy-section">
+                         <div class="policy-title">↩️ Return & Refund Policy</div>
+                         <p style="font-size: 0.9rem;">${product.returns || 'Easy 7-day returns on all items. No questions asked.'}</p>
+                    </div>
+
+                    <div class="policy-section">
+                         <div class="policy-title">❌ Cancellation Policy</div>
+                         <p style="font-size: 0.9rem;">Orders can be cancelled anytime before they are shipped.</p>
+                    </div>
+
                 </div>
             `;
         }

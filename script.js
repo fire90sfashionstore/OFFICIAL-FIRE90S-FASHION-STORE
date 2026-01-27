@@ -273,3 +273,57 @@ function scrollCollections(direction) {
         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
 }
+
+// Share Modal Logic
+function openShareModal() {
+    // Check if modal exists
+    let modal = document.getElementById("shareModal");
+    if (!modal) {
+        // Create modal
+        const modalHtml = `
+            <div id="shareModal" class="share-modal" onclick="closeShareModal(event)">
+                <div class="share-content" onclick="event.stopPropagation()">
+                    <h3 style="margin-bottom: 10px;">Share this Product</h3>
+                    <p style="opacity: 0.7; margin-bottom: 20px;">Share with friends and family!</p>
+                    <div class="share-options">
+                        <button class="share-btn whatsapp" onclick="shareTo(\"whatsapp\")" title="WhatsApp"><span style="font-size: 1.5rem">??</span></button>
+                        <button class="share-btn facebook" onclick="shareTo(\"facebook\")" title="Facebook"><span style="font-size: 1.5rem">??</span></button>
+                        <button class="share-btn copy-link" onclick="copyProductLink()" title="Copy Link"><span style="font-size: 1.5rem">??</span></button>
+                    </div>
+                    <button class="btn" style="margin-top: 25px; padding: 10px 25px; background: transparent; border: 1px solid white;" onclick="closeShareModal(null)">Close</button>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML("beforeend", modalHtml);
+        modal = document.getElementById("shareModal");
+    }
+    modal.style.display = "flex";
+}
+
+function closeShareModal(event) {
+    // If event is provided (click outside), close. If null (button click), always close.
+    if (!event || event.target.id === "shareModal") {
+        const modal = document.getElementById("shareModal");
+        if (modal) modal.style.display = "none";
+    }
+}
+
+function shareTo(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent("Check out this awesome product from FIRE90S FASHION STORE! ??");
+    
+    if (platform === "whatsapp") {
+        window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
+    } else if (platform === "facebook") {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
+    }
+}
+
+function copyProductLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("Link copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
+

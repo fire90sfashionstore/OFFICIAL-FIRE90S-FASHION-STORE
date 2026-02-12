@@ -1,6 +1,17 @@
 const products = [
     // New Arrivals (Added Feb 2026)
     {
+        id: 105,
+        name: "Premium DTF Print Tee",
+        category: "New Arrivals",
+        price: "₹1,199",
+        img: "assets/images/premium_dtf_elephant.png",
+        description: "High-quality Direct-to-Film (DTF) print featuring a stunning elephant design. Premium oversized fit.",
+        details: ["100% Cotton", "DTF Print", "Oversized Fit"],
+        shipping: "Free shipping.",
+        returns: "30-day return policy."
+    },
+    {
         id: 101,
         name: "Basketball Embroidered Shirt",
         category: "New Arrivals",

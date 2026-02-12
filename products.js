@@ -5,7 +5,7 @@ const products = [
         name: "Basketball Embroidered Shirt",
         category: "New Arrivals",
         price: "₹1,499",
-        img: "assets/images/new_arrivals_collage.png",
+        img: "assets/images/basketball_shirt.png",
         description: "Premium embroidered shirt featuring basketball motifs. Perfect for sports enthusiasts and streetwear lovers.",
         details: ["Embroidery detail", "Relaxed fit", "Breathable fabric"],
         shipping: "Free shipping.",

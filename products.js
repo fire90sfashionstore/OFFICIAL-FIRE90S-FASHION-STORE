@@ -1,4 +1,50 @@
 const products = [
+    // New Arrivals (Added Feb 2026)
+    {
+        id: 101,
+        name: "Basketball Embroidered Shirt",
+        category: "New Arrivals",
+        price: "₹1,499",
+        img: "assets/images/new_arrivals_collage.png",
+        description: "Premium embroidered shirt featuring basketball motifs. Perfect for sports enthusiasts and streetwear lovers.",
+        details: ["Embroidery detail", "Relaxed fit", "Breathable fabric"],
+        shipping: "Free shipping.",
+        returns: "30-day return policy."
+    },
+    {
+        id: 102,
+        name: "Nocturnal Oversized T-shirt",
+        category: "New Arrivals",
+        price: "₹1,199",
+        img: "assets/images/new_arrivals_collage.png",
+        description: "Make a statement with the Nocturnal oversized tee. Bold graphics on high-quality cotton.",
+        details: ["100% Cotton", "Oversized fit", "High-density print"],
+        shipping: "Free shipping.",
+        returns: "30-day return policy."
+    },
+    {
+        id: 103,
+        name: "Badass Embroidered Varsity Jacket",
+        category: "New Arrivals",
+        price: "₹1,999",
+        img: "assets/images/new_arrivals_collage.png",
+        description: "Classic varsity style with a modern twist. Features intricate embroidery and color-block design.",
+        details: ["Premium fabric", "Snap button closure", "Ribbed cuffs"],
+        shipping: "Free shipping.",
+        returns: "30-day return policy."
+    },
+    {
+        id: 104,
+        name: "Classic Chess Shirt",
+        category: "New Arrivals",
+        price: "₹1,299",
+        img: "assets/images/new_arrivals_collage.png",
+        description: "Checkmate your style game with this unique chess board print shirt.",
+        details: ["All-over print", "Cuban collar", "Lightweight material"],
+        shipping: "Free shipping.",
+        returns: "30-day return policy."
+    },
+
     // Custom Streetwear Edition
     {
         id: 1,
@@ -33,7 +79,7 @@ const products = [
             "6 functional pockets",
             "Adjustable waistband"
         ],
-         shipping: "Standard shipping rates apply. Priority shipping available.",
+        shipping: "Standard shipping rates apply. Priority shipping available.",
         returns: "Returns accepted within 14 days of delivery."
     },
     {
@@ -60,10 +106,10 @@ const products = [
         img: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=1000&auto=format&fit=crop",
         description: "Hand-distressed denim jacket featuring unique graffiti art. Each piece is slightly unique.",
         details: [
-             "100% Denim",
-             "Button closure",
-             "Hand-painted details",
-             "Chest pockets"
+            "100% Denim",
+            "Button closure",
+            "Hand-painted details",
+            "Chest pockets"
         ],
         shipping: "Free express shipping.",
         returns: "Final sale due to custom nature of product."
@@ -75,13 +121,13 @@ const products = [
         price: "$45.00",
         img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
         description: "Comfy and sporty, these track pants bring back the energetic vibe of the 90s sport scene.",
-         details: [
+        details: [
             "Polyester blend",
             "Elastic cuffs",
             "Side stripes",
             "Drawstring waist"
         ],
-         shipping: "Standard shipping.",
+        shipping: "Standard shipping.",
         returns: "30-day return policy."
     },
 
@@ -103,20 +149,20 @@ const products = [
         category: "DARE2DREAM TEE",
         price: "$39.99",
         img: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1000&auto=format&fit=crop",
-         description: "Minimalist design for the modern dreamer.",
-         details: ["Organic Cotton", "Slim fit", "Embroidered logo"],
-         shipping: "Ships in 2-3 business days.",
+        description: "Minimalist design for the modern dreamer.",
+        details: ["Organic Cotton", "Slim fit", "Embroidered logo"],
+        shipping: "Ships in 2-3 business days.",
         returns: "30-day return policy."
     },
     {
-         id: 16,
-         name: "Limitless Vision Tee",
-         category: "DARE2DREAM TEE",
-         price: "$32.99",
-         img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop",
+        id: 16,
+        name: "Limitless Vision Tee",
+        category: "DARE2DREAM TEE",
+        price: "$32.99",
+        img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop",
         description: "Expand your horizons with the Limitless Vision Tee.",
-         details: ["Poly-cotton blend", "Soft touch", "Lasting color"],
-         shipping: "Ships in 2-3 business days.",
+        details: ["Poly-cotton blend", "Soft touch", "Lasting color"],
+        shipping: "Ships in 2-3 business days.",
         returns: "30-day return policy."
     },
     {
@@ -125,9 +171,9 @@ const products = [
         category: "DARE2DREAM TEE",
         price: "$36.99",
         img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000&auto=format&fit=crop",
-         description: "Dark and mysterious, like a starry night.",
-         details: ["100% Cotton", "Relaxed fit", "Glow in the dark print"],
-         shipping: "Ships in 2-3 business days.",
+        description: "Dark and mysterious, like a starry night.",
+        details: ["100% Cotton", "Relaxed fit", "Glow in the dark print"],
+        shipping: "Ships in 2-3 business days.",
         returns: "30-day return policy."
     },
 
@@ -138,9 +184,9 @@ const products = [
         category: "Custom Wholesale Dress",
         price: "Contact for Quote",
         img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1000&auto=format&fit=crop",
-         description: "Beautiful floral dresses available for wholesale. Perfect for boutiques.",
-         details: ["Minimum order: 50 units", "Various patterns available", "Sizes XS-XL"],
-         shipping: "Freight shipping calculations provided upon quote.",
+        description: "Beautiful floral dresses available for wholesale. Perfect for boutiques.",
+        details: ["Minimum order: 50 units", "Various patterns available", "Sizes XS-XL"],
+        shipping: "Freight shipping calculations provided upon quote.",
         returns: "Wholesale terms apply."
     },
     {
@@ -148,10 +194,10 @@ const products = [
         name: "Summer Midi Collection",
         category: "Custom Wholesale Dress",
         price: "Contact for Quote",
-         img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop",
+        img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop",
         description: "A collection of airy summer midi dresses.",
-         details: ["Linen blend", "Assorted colors", " Breathable fabric"],
-         shipping: "Freight shipping calculations provided upon quote.",
+        details: ["Linen blend", "Assorted colors", " Breathable fabric"],
+        shipping: "Freight shipping calculations provided upon quote.",
         returns: "Wholesale terms apply."
     },
     {

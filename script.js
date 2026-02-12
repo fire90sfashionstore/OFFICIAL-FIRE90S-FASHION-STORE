@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render Home Sections if containers exist
     renderNewArrivals();
-    renderBestSellers();
+
 
     // Check for category filter in URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -268,15 +268,7 @@ function renderNewArrivals() {
     container.innerHTML = newArrivals.map(p => createProductCardHTML(p)).join('');
 }
 
-function renderBestSellers() {
-    const container = document.getElementById('best-sellers-container');
-    if (!container) return;
 
-    // Simulating "Best Sellers": taking 4 random products (e.g. index 4-8)
-    const bestSellers = products.slice(4, 8);
-
-    container.innerHTML = bestSellers.map(p => createProductCardHTML(p)).join('');
-}
 
 function createProductCardHTML(p) {
     return `
